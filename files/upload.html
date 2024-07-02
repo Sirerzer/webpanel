@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Files</title>
+</head>
+<body>
+    <form id="uploadForm" action="http://194.145.127.13:5000/server/37703979088dc53050a4dd68cebf54d330b29a756f0b3c8051e57e513ae079c4/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="files[]" multiple>
+        <input type="text" name="upload_path" value="/" hidden>
+        <button type="submit">Upload</button>
+    </form>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data);
+                alert('Files uploaded successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error uploading files!');
+            });
+        });
+    </script>
+</body>
+</html>

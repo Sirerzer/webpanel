@@ -1,0 +1,121 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Startup Command",
+                "description": "The command to startup the egg \r\n(Do not change if you do not know what you are doing!)",
+                "env_variable": "STARTUP_CMD",
+                "default_value": ".\/start.sh",
+                "server_value": ".\/start.sh",
+                "is_editable": true,
+                "rules": "present"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Wordpress",
+                "description": "Enable or disable Wordpress\r\n\r\n0 = false (default)\r\n1 = true",
+                "env_variable": "WORDPRESS",
+                "default_value": "0",
+                "server_value": "0",
+                "is_editable": true,
+                "rules": "required|boolean"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Composer modules",
+                "description": "Specify the composer modules you want to install, separate the packages with a space\r\nyou can always add packages later..",
+                "env_variable": "COMPOSER_MODULES",
+                "default_value": "",
+                "server_value": "",
+                "is_editable": true,
+                "rules": "nullable|string"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Git Repo Address",
+                "description": "Git repo to clone\r\n\r\nI.E. https:\/\/github.com\/finnie2006\/repo_name",
+                "env_variable": "GIT_ADDRESS",
+                "default_value": "",
+                "server_value": "",
+                "is_editable": true,
+                "rules": "nullable|string"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Git Branch",
+                "description": "What branch to pull from github.\r\n\r\nDefault is blank to pull the repo default branch",
+                "env_variable": "BRANCH",
+                "default_value": "",
+                "server_value": "",
+                "is_editable": true,
+                "rules": "nullable|string"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Auto Update",
+                "description": "Pull the latest files on startup when using a GitHub repo.",
+                "env_variable": "AUTO_UPDATE",
+                "default_value": "0",
+                "server_value": "0",
+                "is_editable": true,
+                "rules": "required|boolean"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "User Uploaded Files",
+                "description": "Skip all the install stuff if you are letting a user upload files.\r\n\r\n0 = false (default)\r\n1 = true",
+                "env_variable": "USER_UPLOAD",
+                "default_value": "0",
+                "server_value": "0",
+                "is_editable": true,
+                "rules": "required|boolean"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Git Username",
+                "description": "Username to auth with git.",
+                "env_variable": "USERNAME",
+                "default_value": "",
+                "server_value": "",
+                "is_editable": true,
+                "rules": "nullable|string"
+            }
+        },
+        {
+            "object": "egg_variable",
+            "attributes": {
+                "name": "Git Access Token",
+                "description": "Password to use with git.\r\n\r\nIt's best practice to use a Personal Access Token.\r\nhttps:\/\/github.com\/settings\/tokens\r\nhttps:\/\/gitlab.com\/-\/profile\/personal_access_tokens",
+                "env_variable": "ACCESS_TOKEN",
+                "default_value": "",
+                "server_value": "",
+                "is_editable": true,
+                "rules": "nullable|string"
+            }
+        }
+    ],
+    "meta": {
+        "startup_command": ".\/start.sh; if [[ ! -z ${COMPOSER_MODULES} ]]; then composer require ${COMPOSER_MODULES} --working-dir=\/home\/container\/webroot; fi;",
+        "docker_images": {
+            "PHP 8.0": " ghcr.io\/sigma-production\/nginx-ptero:8.0",
+            "PHP 8.1": " ghcr.io\/sigma-production\/nginx-ptero:8.1"
+        },
+        "raw_startup_command": "{{STARTUP_CMD}}; if [[ ! -z ${COMPOSER_MODULES} ]]; then composer require ${COMPOSER_MODULES} --working-dir=\/home\/container\/webroot; fi;"
+    }
+}
