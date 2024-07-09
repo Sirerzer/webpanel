@@ -1,4 +1,4 @@
-<php> include "assets/php/header.php";</php>
+<?php include "assets/php/header.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
