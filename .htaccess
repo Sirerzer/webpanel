@@ -1,0 +1,17 @@
+
+<FilesMatch "^\.env$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "^\artisan$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^server/([a-zA-Z0-9-]+)/$ /server/index.php?uuid=$1 [L]
+RewriteRule ^server/([a-zA-Z0-9-]+)$ /server/index.php?uuid=$1 [L]
+RewriteRule ^admin/nodes/view/([0-9-]+)$ /admin/nodes/view/index.php?uuid=$1 [L]
+RewriteRule ^server/([a-zA-Z0-9-]+)/files/(.*)$ /files/index.php?uuid=$1&path=$2 [L,QSA]
+ErrorDocument 404 /404.php
