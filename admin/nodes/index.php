@@ -84,20 +84,20 @@ if ($adminlevel === 1) {
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
         <meta name="theme-color" content="#0e4688">
 
-        
-                        <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/select2/select2.min.css?t={cache-version}">
+ 
+        <link media="all" type="text/css" rel="stylesheet" href="/assets/css/select2.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/bootstrap/bootstrap.min.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/bootstrap.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/adminlte/admin.min.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/admin.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/adminlte/colors/skin-blue.min.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/skin.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/sweetalert/sweetalert.min.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/sweetalert.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/vendor/animate/animate.min.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/animate.css">
 
-            <link media="all" type="text/css" rel="stylesheet" href="http://144.24.202.102/themes/pterodactyl/css/pterodactyl.css?t={cache-version}">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/css/pterodactyl.css">
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
