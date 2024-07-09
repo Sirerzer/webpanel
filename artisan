@@ -1,0 +1,39 @@
+<?php
+// command.php
+
+if ($argc < 2) {
+    echo "Usage: php command.php <commande> [arguments...]\n";
+    exit(1);
+}
+
+$command = $argv[1];
+$arguments = array_slice($argv, 2); // Récupère les arguments supplémentaires
+
+switch ($command) {
+    case 'test':
+        echo "Exécution de la commande 'test'\n";
+        echo "Arguments: " . implode(', ', $arguments) . "\n";
+        // Ajoutez ici le code pour la commande 'test'
+        break;
+    case 'migrate':
+        include './migrate/user.php';
+        //implode(', ', $arguments) . "\n";
+        // Ajoutez ici le code pour la commande 'test'
+        break;
+    case 'help':
+        include './migrate/user.php';
+        //implode(', ', $arguments) . "\n";
+        // Ajoutez ici le code pour la commande 'test'
+        break;
+    // Autres commandes...
+
+    default:
+        echo "Commande inconnue: $command\n";
+        echo "Commandes disponibles: test\n";
+        exit(1);
+}
+
+exit(0);
+
+
+
