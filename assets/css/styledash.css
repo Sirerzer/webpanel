@@ -429,3 +429,81 @@ html {
     padding: 10px;
     height: 380px;
 }
+/* General body styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            /* Adjusted to a percentage for responsiveness */
+            margin: auto;
+            /* Center the container horizontally */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Server list styles */
+        .server-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.server-list li {
+    margin-bottom: 8px; /* Reduced from 10px for tighter spacing */
+}
+
+.server-list li a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.server-list li a:hover {
+    background-color: #e0e0e0;
+}
+
+
+        /* Error and info messages */
+        .message {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    background-color: #ffd9d9;
+}
+
+.info {
+    color: green;
+    font-weight: bold;
+    background-color: #ccffcc;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    .server-list li a {
+        padding: 10px;
+    }
+}
