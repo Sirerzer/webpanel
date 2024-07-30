@@ -5,7 +5,7 @@
 ![GitHub Releases](https://img.shields.io/github/downloads/pterodactyl/panel/latest/total?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/pterodactyl/panel?style=for-the-badge)
 
-# WebPanel
+# WebPanel BUILD ON PTERODACTYL
 
 WebPanel is a free, open-source game server management panel built with PHP,and React. Designed with security
 in mind, Webpanel runs all game servers in isolated Docker containers while exposing a beautiful and intuitive
