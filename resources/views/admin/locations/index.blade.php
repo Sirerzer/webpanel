@@ -35,7 +35,7 @@
                         @foreach ($locations as $location)
                             <tr>
                                 <td><code>{{ $location->id }}</code></td>
-                                <td><a href="{{ route('admin.locations.view', $location->id) }}">{{ $location->short }}</a></td>
+                                <td style="color: {{ $location->long }};"><a href="{{ route('admin.locations.view', $location->id) }}">{{ $location->short }}</a></td>
                                 <td>{{ $location->long }}</td>
                                 <td class="text-center">{{ $location->nodes_count }}</td>
                                 <td class="text-center">{{ $location->servers_count }}</td>
@@ -65,7 +65,7 @@
                         <div class="col-md-12">
                             <label for="pLongModal" class="form-label">Description</label>
                             <textarea name="long" id="pLongModal" class="form-control" rows="4"></textarea>
-                            <p class="text-muted small">A longer description of this location. Must be less than 191 characters.</p>
+                            <p class="text-muted small">Color .</p>
                         </div>
                     </div>
                 </div>
