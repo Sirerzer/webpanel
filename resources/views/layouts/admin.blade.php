@@ -26,8 +26,8 @@
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
             {!! Theme::css('css/pterodactyl.css?t={cache-version}') !!}
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+            <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
             <script src="https://kit.fontawesome.com/4bfe10eef3.js" crossorigin="anonymous"></script>
 
             <!--[if lt IE 9]>
@@ -112,6 +112,11 @@
                                 <i class="fa fa-users"></i> <span>Users</span>
                             </a>
                         </li>
+                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.roles') ?: 'active' }}">
+                            <a href="{{ route('admin.roles') }}">
+                                <i class="fa fa-users"></i> <span>Roles</span>
+                            </a>
+                        </li>
                         <li class="header">SERVICE MANAGEMENT</li>
                         
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.nests') ?: 'active' }}">
@@ -119,6 +124,15 @@
                             <i class="fab fa-docker"></i> <span>Docker</span>
                             </a>
                         </li>
+                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.extension') ?: 'active' }}">
+                            <a href="{{ route('admin.extension') }}">
+                            <i class="fab fa-solid fa-add"></i> <span>Extension</span>
+                            </a>
+                        </li>
+                        <?php
+                        foreach (glob(base_path('/extension/*/navbar.php')) as $routeFile) {
+                            include $routeFile;
+                        }?>
                     </ul>
                 </section>
             </aside>

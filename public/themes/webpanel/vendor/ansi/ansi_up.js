@@ -42,7 +42,7 @@
                     { rgb: [0, 0, 187], class_name: "ansi-blue" },
                     { rgb: [187, 0, 187], class_name: "ansi-magenta" },
                     { rgb: [0, 187, 187], class_name: "ansi-cyan" },
-                    { rgb: [255, 255, 255], class_name: "ansi-white" }
+                    { rgb: [0, 0, 0], class_name: "ansi-white" }
                 ],
                 [
                     { rgb: [85, 85, 85], class_name: "ansi-bright-black" },
@@ -52,7 +52,7 @@
                     { rgb: [85, 85, 255], class_name: "ansi-bright-blue" },
                     { rgb: [255, 85, 255], class_name: "ansi-bright-magenta" },
                     { rgb: [85, 255, 255], class_name: "ansi-bright-cyan" },
-                    { rgb: [255, 255, 255], class_name: "ansi-bright-white" }
+                    { rgb: [0, 0, 0], class_name: "ansi-bright-white" }
                 ]
             ];
             this.htmlFormatter = {

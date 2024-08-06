@@ -4,16 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Pterodactyl\Http\Controllers\Admin;
 use Pterodactyl\Http\Middleware\Admin\Servers\ServerInstalled;
 
+
 Route::get('/', [Admin\BaseController::class, 'index'])->name('admin.index');
 
-/*
-|--------------------------------------------------------------------------
-| Location Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/api
-|
-*/
 Route::group(['prefix' => 'api'], function () {
     Route::get('/', [Admin\ApiController::class, 'index'])->name('admin.api.index');
     Route::get('/new', [Admin\ApiController::class, 'create'])->name('admin.api.new');
@@ -23,14 +16,6 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('/revoke/{identifier}', [Admin\ApiController::class, 'delete'])->name('admin.api.delete');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Location Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/locations
-|
-*/
 Route::group(['prefix' => 'tags'], function () {
     Route::get('/', [Admin\LocationController::class, 'index'])->name('admin.locations');
     Route::get('/view/{location:id}', [Admin\LocationController::class, 'view'])->name('admin.locations.view');
@@ -39,14 +24,7 @@ Route::group(['prefix' => 'tags'], function () {
     Route::patch('/view/{location:id}', [Admin\LocationController::class, 'update']);
 });
 
-/*
-|--------------------------------------------------------------------------
-| Database Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/databases
-|
-*/
+
 Route::group(['prefix' => 'databases'], function () {
     Route::get('/', [Admin\DatabaseController::class, 'index'])->name('admin.databases');
     Route::get('/view/{host:id}', [Admin\DatabaseController::class, 'view'])->name('admin.databases.view');
@@ -56,14 +34,6 @@ Route::group(['prefix' => 'databases'], function () {
     Route::delete('/view/{host:id}', [Admin\DatabaseController::class, 'delete']);
 });
 
-/*
-|--------------------------------------------------------------------------
-| Settings Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/settings
-|
-*/
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', [Admin\Settings\IndexController::class, 'index'])->name('admin.settings');
     Route::get('/mail', [Admin\Settings\MailController::class, 'index'])->name('admin.settings.mail');
@@ -76,14 +46,7 @@ Route::group(['prefix' => 'settings'], function () {
     Route::patch('/advanced', [Admin\Settings\AdvancedController::class, 'update']);
 });
 
-/*
-|--------------------------------------------------------------------------
-| User Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/users
-|
-*/
+
 Route::group(['prefix' => 'users'], function () {
     Route::get('/', [Admin\UserController::class, 'index'])->name('admin.users');
     Route::get('/accounts.json', [Admin\UserController::class, 'json'])->name('admin.users.json');
@@ -96,14 +59,7 @@ Route::group(['prefix' => 'users'], function () {
     Route::delete('/view/{user:id}', [Admin\UserController::class, 'delete']);
 });
 
-/*
-|--------------------------------------------------------------------------
-| Server Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/servers
-|
-*/
+
 Route::group(['prefix' => 'servers'], function () {
     Route::get('/', [Admin\Servers\ServerController::class, 'index'])->name('admin.servers');
     Route::get('/new', [Admin\Servers\CreateServerController::class, 'index'])->name('admin.servers.new');
@@ -139,14 +95,6 @@ Route::group(['prefix' => 'servers'], function () {
         ->name('admin.servers.view.mounts.delete');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Node Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/nodes
-|
-*/
 Route::group(['prefix' => 'nodes'], function () {
     Route::get('/', [Admin\Nodes\NodeController::class, 'index'])->name('admin.nodes');
     Route::get('/new', [Admin\NodesController::class, 'create'])->name('admin.nodes.new');
@@ -170,36 +118,6 @@ Route::group(['prefix' => 'nodes'], function () {
     Route::delete('/view/{node:id}/allocations', [Admin\NodesController::class, 'allocationRemoveMultiple'])->name('admin.nodes.view.allocation.removeMultiple');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Mount Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/mounts
-|
-*/
-//Route::group(['prefix' => 'mounts'], function () {
-//    Route::get('/', [Admin\MountController::class, 'index'])->name('admin.mounts');
-//    Route::get('/view/{mount:id}', [Admin\MountController::class, 'view'])->name('admin.mounts.view');
-//
-//    Route::post('/', [Admin\MountController::class, 'create']);
-//    Route::post('/{mount:id}/eggs', [Admin\MountController::class, 'addEggs'])->name('admin.mounts.eggs');
-//    Route::post('/{mount:id}/nodes', [Admin\MountController::class, 'addNodes'])->name('admin.mounts.nodes');
-//
-//    Route::patch('/view/{mount:id}', [Admin\MountController::class, 'update']);
-//
-//    Route::delete('/{mount:id}/eggs/{egg_id}', [Admin\MountController::class, 'deleteEgg']);
-//    Route::delete('/{mount:id}/nodes/{node_id}', [Admin\MountController::class, 'deleteNode']);
-//});
-
-/*
-|--------------------------------------------------------------------------
-| Nest Controller Routes
-|--------------------------------------------------------------------------
-|
-| Endpoint: /admin/nests
-|
-*/
 Route::group(['prefix' => 'docker'], function () {
     Route::get('/', [Admin\Nests\NestController::class, 'index'])->name('admin.nests');
     Route::get('/new', [Admin\Nests\NestController::class, 'create'])->name('admin.nests.new');
@@ -226,3 +144,28 @@ Route::group(['prefix' => 'docker'], function () {
     Route::delete('/image/{egg:id}', [Admin\Nests\EggController::class, 'destroy']);
     Route::delete('/image/{egg:id}/variables/{variable:id}', [Admin\Nests\EggVariableController::class, 'destroy']);
 });
+
+Route::group(['prefix' => 'extension'], function () {
+    Route::get('/', [Admin\Extension\ExtensionController::class, 'index'])->name('admin.extension');
+    Route::get('/create', [Admin\Extension\ExtensionController::class, 'create'])->name('admin.extension.create');
+    Route::post('/', [Admin\Extension\ExtensionController::class, 'store'])->name('admin.extension.store');
+    Route::get('/{id}', [Admin\Extension\ExtensionController::class, 'show'])->name('admin.extension.show');
+    Route::get('/{id}/edit', [Admin\Extension\ExtensionController::class, 'edit'])->name('admin.extension.edit');
+    Route::patch('/{id}', [Admin\Extension\ExtensionController::class, 'update'])->name('admin.extension.update');
+    Route::delete('/{id}', [Admin\Extension\ExtensionController::class, 'destroy'])->name('admin.extension.destroy');
+});
+
+Route::group(['prefix' => 'roles'], function () {
+    Route::get('/', [Admin\Roles\RolesController::class, 'index'])->name('admin.roles');
+    Route::get('/create', [Admin\Roles\RolesController::class, 'create'])->name('admin.roles.create');
+    Route::post('/', [Admin\Roles\RolesController::class, 'store'])->name('admin.roles.store');
+    Route::get('/{id}', [Admin\Roles\RolesController::class, 'show'])->name('admin.roles.show');
+    Route::get('/{id}/edit', [Admin\Roles\RolesController::class, 'edit'])->name('admin.roles.edit');
+    Route::patch('/{id}', [Admin\Roles\RolesController::class, 'update'])->name('admin.roles.update');
+    Route::delete('/{id}', [Admin\Roles\RolesController::class, 'destroy'])->name('admin.roles.destroy');
+});
+
+
+foreach (glob(base_path('/extension/*/routes/admin.php')) as $routeFile) {
+    include $routeFile;
+}

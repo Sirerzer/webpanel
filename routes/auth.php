@@ -11,7 +11,9 @@ use Pterodactyl\Http\Controllers\Auth;
 | Endpoint: /auth
 |
 */
-
+foreach (glob(base_path('/extension/*/routes/auth.php')) as $routeFile) {
+    include $routeFile;
+}
 // These routes are defined so that we can continue to reference them programmatically.
 // They all route to the same controller function which passes off to React.
 Route::get('/login', [Auth\LoginController::class, 'index'])->name('auth.login');

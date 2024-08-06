@@ -37,7 +37,7 @@ const SpinnerComponent = styled.div<Props>`
               `
             : null};
 
-    border-color: ${(props) => (!props.isBlue ? 'rgba(255, 255, 255, 0.2)' : 'hsla(212, 92%, 43%, 0.2)')};
+    border-color: ${(props) => (!props.isBlue ? 'rgba(0, 0, 0, 0.2)' : 'hsla(212, 92%, 43%, 0.2)')};
     border-top-color: ${(props) => (!props.isBlue ? 'rgb(255, 255, 255)' : 'hsl(212, 92%, 43%)')};
 `;
 

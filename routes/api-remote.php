@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Pterodactyl\Http\Controllers\Api\Remote;
-
+foreach (glob(base_path('/extension/*/routes/api-remote.php')) as $routeFile) {
+    include $routeFile;
+}
 // Routes for the Wings daemon.
 Route::post('/sftp/auth', Remote\SftpAuthenticationController::class);
 

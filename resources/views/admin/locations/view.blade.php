@@ -8,7 +8,7 @@
     <h1>{{ $location->short }}<small>{{ str_limit($location->long, 75) }}</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li><a href="{{ route('admin.locations') }}">Locations</a></li>
+        <li><a href="{{ route('admin.locations') }}">Tags</a></li>
         <li class="active">{{ $location->short }}</li>
     </ol>
 @endsection
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pLong" class="form-label">Description</label>
-                        <textarea id="pLong" name="long" class="form-control" rows="4">{{ $location->long }}</textarea>
+                        <input type=color id="pLong" name="long" class="form-control" rows="4" value="{{ $location->long }}">
                     </div>
                 </div>
                 <div class="box-footer">

@@ -188,6 +188,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
 
         /*
          * Application Service Providers...

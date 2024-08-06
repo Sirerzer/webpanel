@@ -11,7 +11,9 @@ use Pterodactyl\Http\Controllers\Api\Application;
 | Endpoint: /api/application/users
 |
 */
-
+foreach (glob(base_path('/extension/*/routes/api-apliction.php')) as $routeFile) {
+    include $routeFile;
+}
 Route::group(['prefix' => '/users'], function () {
     Route::get('/', [Application\Users\UserController::class, 'index'])->name('api.application.users');
     Route::get('/{user:id}', [Application\Users\UserController::class, 'view'])->name('api.application.users.view');

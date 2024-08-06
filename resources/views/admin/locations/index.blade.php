@@ -5,10 +5,10 @@
 @endsection
 
 @section('content-header')
-    <h1>Locations<small>All locations that nodes can be assigned to for easier categorization.</small></h1>
+    <h1>Tags<small>All Tags that nodes can be assigned to for easier categorization.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Locations</li>
+        <li class="active">Tags</li>
     </ol>
 @endsection
 
@@ -23,20 +23,19 @@
                 </div>
             </div>
             <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
+                <table class="table table-hover" >
                     <tbody>
                         <tr>
                             <th>ID</th>
                             <th>Short Code</th>
-                            <th>Description</th>
                             <th class="text-center">Nodes</th>
                             <th class="text-center">Servers</th>
                         </tr>
                         @foreach ($locations as $location)
-                            <tr>
+                            <tr style="background-color: {{ $location->long }};" onclick=window.location.href="{{ route('admin.locations.view', $location->id) }}";>
                                 <td><code>{{ $location->id }}</code></td>
-                                <td style="color: {{ $location->long }};"><a href="{{ route('admin.locations.view', $location->id) }}">{{ $location->short }}</a></td>
-                                <td>{{ $location->long }}</td>
+                                <td style="color: #000;">{{ $location->short }} </td>
+                               
                                 <td class="text-center">{{ $location->nodes_count }}</td>
                                 <td class="text-center">{{ $location->servers_count }}</td>
                             </tr>
@@ -64,7 +63,7 @@
                         </div>
                         <div class="col-md-12">
                             <label for="pLongModal" class="form-label">Description</label>
-                            <textarea name="long" id="pLongModal" class="form-control" rows="4"></textarea>
+                            <input name="long" id="pLongModal" class="form-control" rows="4" type="color">
                             <p class="text-muted small">Color .</p>
                         </div>
                     </div>

@@ -16,6 +16,10 @@ use Pterodactyl\Http\Middleware\Api\Client\Server\AuthenticateServerAccess;
 | Endpoint: /api/client
 |
 */
+foreach (glob(base_path('/extension/*/routes/api-client.php')) as $routeFile) {
+    include $routeFile;
+}
+
 Route::get('/', [Client\ClientController::class, 'index'])->name('api:client.index');
 Route::get('/permissions', [Client\ClientController::class, 'permissions']);
 

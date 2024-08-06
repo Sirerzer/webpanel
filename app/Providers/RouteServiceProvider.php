@@ -19,6 +19,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      */
+    
     public function boot(): void
     {
         $this->configureRateLimiting();
@@ -97,7 +98,7 @@ class RouteServiceProvider extends ServiceProvider
                 config('http.rate_limit.client')
             )->by($key);
         });
-
+        
         RateLimiter::for('api.application', function (Request $request) {
             $key = optional($request->user())->uuid ?: $request->ip();
 

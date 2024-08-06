@@ -18,6 +18,7 @@
 @endsection
 
 @section('content')
+
 <div class="row">
     <div class="col-xs-12">
         <div class="box box-primary">
@@ -41,7 +42,7 @@
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Location</th>
+                            <th>Tags</th>
                             <th>Memory</th>
                             <th>Disk</th>
                             <th class="text-center">Servers</th>
@@ -49,7 +50,7 @@
                             <th class="text-center">Public</th>
                         </tr>
                         @foreach ($nodes as $node)
-                            <tr>
+                            <tr   onclick=window.location.href="{{ route('admin.nodes.view', $node->id) }}"; style="background-color: {{ $node->location->long }}; ">
                                 <td class="text-center text-muted left-icon" data-action="ping" data-secret="{{ $node->getDecryptedKey() }}" data-location="{{ $node->scheme }}://{{ $node->fqdn }}:{{ $node->daemonListen }}/api/system"><i class="fa fa-fw fa-refresh fa-spin"></i></td>
                                 <td>{!! $node->maintenance_mode ? '<span class="label label-warning"><i class="fa fa-wrench"></i></span> ' : '' !!}<a href="{{ route('admin.nodes.view', $node->id) }}">{{ $node->name }}</a></td>
                                 <td>{{ $node->location->short }}</td>
