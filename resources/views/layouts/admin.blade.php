@@ -112,9 +112,9 @@
                                 <i class="fa fa-users"></i> <span>Users</span>
                             </a>
                         </li>
-                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.roles') ?: 'active' }}">
-                            <a href="{{ route('admin.roles') }}">
-                                <i class="fa fa-users"></i> <span>Roles</span>
+                        <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.rank') ?: 'active' }}">
+                            <a href="{{ route('admin.rank') }}">
+                                <i class="fa fa-users"></i> <span>Rank</span>
                             </a>
                         </li>
                         <li class="header">SERVICE MANAGEMENT</li>

@@ -36,11 +36,11 @@
 }
 
 .login-copyright {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 255, 255);
 }
 
 .login-copyright > a {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(255, 255, 255);
 }
 
 .particles-js-canvas-el {
@@ -115,7 +115,7 @@
 
 code {
     background-color: #eef1f6;
-    color: #596981;
+    color: #ffffff;
     border-radius: 2px;
     padding-left: 4px;
     padding-right: 4px;
@@ -209,7 +209,7 @@ td.has-progress {
     top: -25px;
     float: right;
     right: 5px;
-    color: #cccccc;
+    color: #ffffff;
     height: 0;
 }
 
@@ -230,7 +230,7 @@ li.select2-results__option--highlighted[aria-selected="false"] > .user-block > .
 }
 
 li.select2-results__option--highlighted[aria-selected="false"] > .user-block > .description {
-    color: #eee;
+    color: #ffffff;
 }
 
 .select2-selection.select2-selection--multiple {
@@ -288,7 +288,7 @@ span[aria-labelledby="select2-pUserId-container"] {
 }
 
 .label-default {
-    background-color: #eef1f6 !important;
+    background-color: #ffffff !important;
 }
 
 .callout.callout-info.callout-slim {
@@ -333,7 +333,7 @@ span[aria-labelledby="select2-pUserId-container"] {
 
 .callout code {
     background-color: #515f6cbb;
-    color: #c3c3c3;
+    color: #ffffff;
     border: 1px solid rgba(0, 0, 0, .25);
 }
 
@@ -496,7 +496,7 @@ label.control-label > span.field-optional:before {
 ******* */
 
 body {
-    color: #cad1d8;
+    color: #ffffff;
 }
 
 .fixed .main-header {
@@ -510,7 +510,7 @@ body {
 
 .skin-blue .main-header .logo {
     background-color: #1f2933;
-    color: #9aa5b1;
+    color: #ffffff;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {

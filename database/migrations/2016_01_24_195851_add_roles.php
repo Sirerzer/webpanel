@@ -10,7 +10,7 @@ class AddRoles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('rank', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 16);
             $table->text('permision');
@@ -24,6 +24,6 @@ class AddRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('r oles');
+        Schema::dropIfExists('rank');
     }
 }

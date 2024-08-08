@@ -155,14 +155,15 @@ Route::group(['prefix' => 'extension'], function () {
     Route::delete('/{id}', [Admin\Extension\ExtensionController::class, 'destroy'])->name('admin.extension.destroy');
 });
 
-Route::group(['prefix' => 'roles'], function () {
-    Route::get('/', [Admin\Roles\RolesController::class, 'index'])->name('admin.roles');
-    Route::get('/create', [Admin\Roles\RolesController::class, 'create'])->name('admin.roles.create');
-    Route::post('/', [Admin\Roles\RolesController::class, 'store'])->name('admin.roles.store');
-    Route::get('/{id}', [Admin\Roles\RolesController::class, 'show'])->name('admin.roles.show');
-    Route::get('/{id}/edit', [Admin\Roles\RolesController::class, 'edit'])->name('admin.roles.edit');
-    Route::patch('/{id}', [Admin\Roles\RolesController::class, 'update'])->name('admin.roles.update');
-    Route::delete('/{id}', [Admin\Roles\RolesController::class, 'destroy'])->name('admin.roles.destroy');
+Route::group(['prefix' => 'rank'], function () {
+    Route::get('/', [Admin\Rank\RankController::class, 'index'])->name('admin.rank');
+    Route::get('/new', [Admin\Rank\RankController::class, 'new'])->name('admin.rank.new');
+    Route::post('/new', [Admin\Rank\RankController::class, 'new'])->name('admin.rank.new');
+    Route::post('/', [Admin\Rank\RankController::class, 'store'])->name('admin.rank.store');
+    Route::get('/{id}', [Admin\Rank\RankController::class, 'show'])->name('admin.rank.show');
+    Route::get('/{id}/edit', [Admin\Rank\RankController::class, 'edit'])->name('admin.rank.edit');
+    Route::patch('/{id}', [Admin\Rank\RankController::class, 'update'])->name('admin.rank.update');
+    Route::delete('/{id}', [Admin\Rank\RankController::class, 'destroy'])->name('admin.rank.destroy');
 });
 
 
